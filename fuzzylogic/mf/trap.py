@@ -41,5 +41,5 @@ class Trapezoid(MembershipFunction):
             np.ndarray: membership values
         """
         return np.maximum(
-            np.minimum(np.minimum(x - self.a) / (self.b - self.a), 1, (self.d - x) / (self.d - self.c)), 0
+            np.minimum(np.minimum((x - self.a) / (self.b - self.a), (self.d - x) / (self.d - self.c)), 1), 0
         )
