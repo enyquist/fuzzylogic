@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,20 +8,21 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Rectangular(MembershipFunction):
     """
     Rectangular membership function
     """
 
-    def __init__(self, low: float, high: float):
-        """
-        Initializes the rectangular membership function.
-        """
-        if low > high:
-            raise ValueError("low must be less than or equal to high")
+    low: float
+    high: float
 
-        self.low = low
-        self.high = high
+    def __post_init__(self):
+        """
+        Checks that low is less than or equal to high.
+        """
+        if self.low > self.high:
+            raise ValueError("low must be less than or equal to high")
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

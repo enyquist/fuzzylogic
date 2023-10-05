@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,18 +8,14 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Sigmoid(MembershipFunction):
     """
     Sigmoid membership function
     """
 
-    def __init__(self, a: float, b: float):
-        """
-        Initializes the sigmoid membership function.
-        """
-
-        self.a = a
-        self.b = b
+    a: float
+    b: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

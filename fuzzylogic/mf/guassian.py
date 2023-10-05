@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,18 +8,14 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Gaussian(MembershipFunction):
     """
     Gaussian membership function
     """
 
-    def __init__(self, mean: float, std: float):
-        """
-        Initializes the Gaussian membership function.
-        """
-
-        self.mean = mean
-        self.std = std
+    mean: float
+    std: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

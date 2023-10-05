@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,19 +8,15 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Bell(MembershipFunction):
     """
     Bell membership function
     """
 
-    def __init__(self, mean: float, std: float, slope: float):
-        """
-        Initializes the Bell membership function.
-        """
-
-        self.mean = mean
-        self.std = std
-        self.slope = slope
+    mean: float
+    std: float
+    slope: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

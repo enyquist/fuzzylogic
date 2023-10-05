@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,26 +8,27 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Trapezoid(MembershipFunction):
     """
     Trapezoid membership function
     """
 
-    def __init__(self, a: float, b: float, c: float, d: float):
-        """
-        Initializes the trapezoid membership function.
-        """
-        if a > b:
-            raise ValueError("a must be less than or equal to b")
-        if b > c:
-            raise ValueError("b must be less than or equal to c")
-        if c > d:
-            raise ValueError("c must be less than or equal to d")
+    a: float
+    b: float
+    c: float
+    d: float
 
-        self.a = a
-        self.b = b
-        self.c = c
-        self.d = d
+    def __post_init__(self):
+        """
+        Checks that a <= b <= c <= d.
+        """
+        if self.a > self.b:
+            raise ValueError("a must be less than or equal to b")
+        if self.b > self.c:
+            raise ValueError("b must be less than or equal to c")
+        if self.c > self.d:
+            raise ValueError("c must be less than or equal to d")
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

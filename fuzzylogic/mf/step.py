@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,17 +8,13 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Step(MembershipFunction):
     """
     Step membership function
     """
 
-    def __init__(self, limit: float):
-        """
-        Initializes the step membership function.
-        """
-
-        self.limit = limit
+    limit: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """

@@ -1,3 +1,6 @@
+# standard libraries
+from dataclasses import dataclass
+
 # third party libraries
 import numpy as np
 
@@ -5,18 +8,14 @@ import numpy as np
 from fuzzylogic.mf.base import MembershipFunction
 
 
+@dataclass
 class Linear(MembershipFunction):
     """
     Linear membership function
     """
 
-    def __init__(self, a: float, b: float):
-        """
-        Initializes the linear membership function.
-        """
-
-        self.a = a
-        self.b = b
+    m: float
+    b: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """
@@ -28,4 +27,4 @@ class Linear(MembershipFunction):
         Returns:
             np.ndarray: membership values
         """
-        return np.clip(self.a * x + self.b, 0, 1)
+        return np.clip(self.m * x + self.b, 0, 1)
