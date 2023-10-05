@@ -22,6 +22,10 @@ click==8.1.7
     #   pip-tools
 comm==0.1.4
     # via ipykernel
+contourpy==1.1.1
+    # via matplotlib
+cycler==0.12.0
+    # via matplotlib
 debugpy==1.8.0
     # via ipykernel
 decorator==5.1.1
@@ -42,6 +46,8 @@ flake8==6.1.0
     #   flake8-docstrings
 flake8-docstrings==1.7.0
     # via -r ./requirements/requirements-dev.in
+fonttools==4.43.0
+    # via matplotlib
 identify==2.5.29
     # via pre-commit
 iniconfig==2.0.0
@@ -60,6 +66,10 @@ jupyter-core==5.3.2
     # via
     #   ipykernel
     #   jupyter-client
+kiwisolver==1.4.5
+    # via matplotlib
+matplotlib==3.8.0
+    # via -r ./requirements/requirements-dev.in
 matplotlib-inline==0.1.6
     # via
     #   ipykernel
@@ -77,12 +87,16 @@ nest-asyncio==1.5.8
 nodeenv==1.8.0
     # via pre-commit
 numpy==1.26.0
-    # via -r ./requirements/requirements-dev.in
+    # via
+    #   -r ./requirements/requirements-dev.in
+    #   contourpy
+    #   matplotlib
 packaging==23.1
     # via
     #   black
     #   build
     #   ipykernel
+    #   matplotlib
     #   pytest
 parso==0.8.3
     # via jedi
@@ -92,6 +106,8 @@ pexpect==4.8.0
     # via ipython
 pickleshare==0.7.5
     # via ipython
+pillow==10.0.1
+    # via matplotlib
 pip-tools==7.3.0
     # via -r ./requirements/requirements-dev.in
 platformdirs==3.10.0
@@ -123,12 +139,16 @@ pyflakes==3.1.0
     # via flake8
 pygments==2.16.1
     # via ipython
+pyparsing==3.1.1
+    # via matplotlib
 pyproject-hooks==1.0.0
     # via build
 pytest==7.4.2
     # via -r ./requirements/requirements-dev.in
 python-dateutil==2.8.2
-    # via jupyter-client
+    # via
+    #   jupyter-client
+    #   matplotlib
 pyyaml==6.0.1
     # via pre-commit
 pyzmq==25.1.1
