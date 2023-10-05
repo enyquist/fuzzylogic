@@ -14,16 +14,16 @@ class Bell(MembershipFunction):
     Bell membership function
     """
 
-    mean: float
-    std: float
-    slope: float
+    center: float
+    width: float
+    intensity: float
 
     def __post_init__(self):
         """
-        Checks that std is not 0.
+        Checks that width is not 0.
         """
-        if self.std == 0:
-            raise ValueError("std must be non-zero")
+        if self.width == 0:
+            raise ValueError("width must be non-zero")
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """
@@ -35,4 +35,4 @@ class Bell(MembershipFunction):
         Returns:
             np.ndarray: membership values
         """
-        return 1 / (1 + np.abs((x - self.mean) / self.std) ** (2 * self.slope))
+        return 1 / (1 + np.abs((x - self.center) / self.width) ** (2 * self.intensity))
