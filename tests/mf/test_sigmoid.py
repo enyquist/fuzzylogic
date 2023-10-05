@@ -7,9 +7,9 @@ from fuzzylogic.mf.sigmoid import Sigmoid
 
 
 def test_sigmoid_evaluation():
-    sigmoid_fn = Sigmoid(a=1, b=0)
+    sigmoid_fn = Sigmoid(center_slope=1, center=0)
 
-    # Evaluate around the inflection point (b value)
+    # Evaluate around the inflection point (center)
     x_val = np.array([0])
     y = sigmoid_fn(x_val)
     assert y == pytest.approx(0.5, 0.01)
@@ -25,7 +25,7 @@ def test_sigmoid_evaluation():
 
 
 def test_sigmoid_array_evaluation():
-    sigmoid_fn = Sigmoid(a=1, b=0)
+    sigmoid_fn = Sigmoid(center_slope=1, center=0)
     x_vals = np.array([-2, -1, 0, 1, 2])
     y = sigmoid_fn(x_vals)
 
@@ -44,7 +44,7 @@ def test_sigmoid_array_evaluation():
 
 def test_sigmoid_slope():
     # Steeper slope
-    sigmoid_steep = Sigmoid(a=5, b=0)
+    sigmoid_steep = Sigmoid(center_slope=5, center=0)
     x_val = np.array([0])
     y_steep = sigmoid_steep(x_val)
     assert y_steep == pytest.approx(0.5, 0.01)
@@ -58,7 +58,7 @@ def test_sigmoid_slope():
     assert y_right > 0.9
 
     # Shallower slope
-    sigmoid_shallow = Sigmoid(a=0.5, b=0)
+    sigmoid_shallow = Sigmoid(center_slope=0.5, center=0)
     x_val = np.array([0])
     y_shallow = sigmoid_shallow(x_val)
     assert y_shallow == pytest.approx(0.5, 0.01)

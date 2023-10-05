@@ -14,8 +14,8 @@ class Sigmoid(MembershipFunction):
     Sigmoid membership function
     """
 
-    a: float
-    b: float
+    center_slope: float
+    center: float
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """
@@ -27,4 +27,4 @@ class Sigmoid(MembershipFunction):
         Returns:
             np.ndarray: membership values
         """
-        return 1 / (1 + np.exp(-self.a * (x - self.b)))
+        return 1 / (1 + np.exp(-self.center_slope * (x - self.center)))
