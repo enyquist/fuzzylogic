@@ -18,6 +18,13 @@ class Bell(MembershipFunction):
     std: float
     slope: float
 
+    def __post_init__(self):
+        """
+        Checks that std is not 0.
+        """
+        if self.std == 0:
+            raise ValueError("std must be non-zero")
+
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """
         Evaluates the membership function at x.
