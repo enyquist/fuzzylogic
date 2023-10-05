@@ -1,10 +1,12 @@
 # standard libraries
 from abc import ABC, abstractmethod
+from dataclasses import dataclass
 
 # third party libraries
 import numpy as np
 
 
+@dataclass
 class MembershipFunction(ABC):
     """
     Abstract class for membership functions.
@@ -16,15 +18,3 @@ class MembershipFunction(ABC):
         Evaluates the membership function at x.
         """
         pass
-
-    def inverse(self, x: np.ndarray) -> np.ndarray:
-        """
-        Computes the complement of the membership function (1 - membership function).
-
-        Args:
-            x (np.ndarray): observations
-
-        Returns:
-            np.ndarray: complement of the membership function
-        """
-        return 1 - self(x)
