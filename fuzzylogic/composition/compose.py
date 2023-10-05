@@ -1,26 +1,30 @@
+# standard libraries
+from typing import Union
+
 # third party libraries
 import numpy as np
 
 # fuzzy logic libraries
 from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.tconorms.base import TCoNorm
 from fuzzylogic.tnorms.base import TNorm
 
 
 class Composition:
     """
-    Composition class for composing membership functions with a t-norm operator.
+    Composition class for composing membership functions with a t-norm or t-conorm operator.
     """
 
-    def __init__(self, operator: TNorm):
+    def __init__(self, operator: Union[TNorm, TCoNorm]):
         """
         Initializes the composition method.
 
         Args:
-            operator (TNorm): t-norm operator
+            operator (TNorm): t-norm or t-conorm operator
         """
 
-        if not isinstance(operator, TNorm):
-            raise ValueError(f"Provided operator is not an instance of TNorm. Received {type(operator)}")
+        if not isinstance(operator, TNorm) or not isinstance(operator, TCoNorm):
+            raise ValueError(f"Provided operator is not an instance of TNorm or TCoNorm. Received {type(operator)}")
 
         self.operator = operator
 
