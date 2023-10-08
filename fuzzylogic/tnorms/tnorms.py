@@ -22,12 +22,23 @@ class MinimumTNorm(TNorm):
             Combined membership function using the minimum operator.
             """
 
-            def __call__(self, x: np.ndarray) -> np.ndarray:
+            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                return np.minimum(mf1(x), mf2(x))
+                # If x1 and x2 are 1D, turn them into a meshgrid
+                if len(x1.shape) == 1 and len(x2.shape) == 1:
+                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
+                else:
+                    X1, X2 = x1, x2
+
+                # Evaluate the membership functions
+                z1 = mf1(X1)
+                z2 = mf2(X2)
+
+                # Return the combined membership function using the minimum operator
+                return np.minimum(z1, z2)
 
         return CombinedMF()
 
@@ -48,12 +59,23 @@ class AlgebraicProductTNorm(TNorm):
             Combined membership function using the algebraic product operator.
             """
 
-            def __call__(self, x: np.ndarray) -> np.ndarray:
+            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                return mf1(x) * mf2(x)
+                # If x1 and x2 are 1D, turn them into a meshgrid
+                if len(x1.shape) == 1 and len(x2.shape) == 1:
+                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
+                else:
+                    X1, X2 = x1, x2
+
+                # Evaluate the membership functions
+                z1 = mf1(X1)
+                z2 = mf2(X2)
+
+                # Return the combined membership function using the algebraic product operator
+                return z1 * z2
 
         return CombinedMF()
 
@@ -74,12 +96,23 @@ class BoundedProductTNorm(TNorm):
             Combined membership function using the bounded product operator.
             """
 
-            def __call__(self, x: np.ndarray) -> np.ndarray:
+            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                return np.maximum(0, mf1(x) + mf2(x) - 1)
+                # If x1 and x2 are 1D, turn them into a meshgrid
+                if len(x1.shape) == 1 and len(x2.shape) == 1:
+                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
+                else:
+                    X1, X2 = x1, x2
+
+                # Evaluate the membership functions
+                z1 = mf1(X1)
+                z2 = mf2(X2)
+
+                # Return the combined membership function using the bounded product operator
+                return np.maximum(0, z1 + z2 - 1)
 
         return CombinedMF()
 
@@ -100,11 +133,25 @@ class DrasticProductTNorm(TNorm):
             Combined membership function using the drastic product operator.
             """
 
-            def __call__(self, x: np.ndarray) -> np.ndarray:
+            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                return np.where(mf1(x) == 1, mf2(x), np.where(mf2(x) == 1, mf1(x), 0))
+                # If x1 and x2 are 1D, turn them into a meshgrid
+                if len(x1.shape) == 1 and len(x2.shape) == 1:
+                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
+                else:
+                    X1, X2 = x1, x2
+
+                # Evaluate the membership functions
+                z1 = mf1(X1)
+                z2 = mf2(X2)
+
+                # Combine using the drastic product
+                result = np.where(z1 == 1, z2, np.where(z2 == 1, z1, 0))
+
+                # Reshape the result to match the meshgrid shape
+                return result.reshape(X1.shape)
 
         return CombinedMF()
