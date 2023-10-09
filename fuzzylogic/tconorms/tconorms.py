@@ -22,23 +22,12 @@ class MaximumTCoNorm(TCoNorm):
             Combined membership function.
             """
 
-            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
+            def __call__(self, x: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                # If x1 and x2 are 1D, turn them into a meshgrid
-                if len(x1.shape) == 1 and len(x2.shape) == 1:
-                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
-                else:
-                    X1, X2 = x1, x2
-
-                # Evaluate the membership functions
-                z1 = mf1(X1)
-                z2 = mf2(X2)
-
-                # Return the combined membership function using the maximum operator
-                return np.maximum(z1, z2)
+                return np.maximum(mf1(x), mf2(x))
 
         return CombinedMF()
 
@@ -59,23 +48,12 @@ class AlgebraicSumTCoNorm(TCoNorm):
             Combined membership function.
             """
 
-            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
+            def __call__(self, x: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                # If x1 and x2 are 1D, turn them into a meshgrid
-                if len(x1.shape) == 1 and len(x2.shape) == 1:
-                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
-                else:
-                    X1, X2 = x1, x2
-
-                # Evaluate the membership functions
-                z1 = mf1(X1)
-                z2 = mf2(X2)
-
-                # Return the combined membership function using the algebraic sum operator
-                return z1 + z2 - z1 * z2
+                return mf1(x) + mf2(x) - mf1(x) * mf2(x)
 
         return CombinedMF()
 
@@ -96,23 +74,12 @@ class BoundedSumTCoNorm(TCoNorm):
             Combined membership function.
             """
 
-            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
+            def __call__(self, x: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                # If x1 and x2 are 1D, turn them into a meshgrid
-                if len(x1.shape) == 1 and len(x2.shape) == 1:
-                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
-                else:
-                    X1, X2 = x1, x2
-
-                # Evaluate the membership functions
-                z1 = mf1(X1)
-                z2 = mf2(X2)
-
-                # Return the combined membership function using the bounded sum operator
-                return np.minimum(1, z1 + z2)
+                return np.minimum(1, mf1(x) + mf2(x))
 
         return CombinedMF()
 
@@ -133,22 +100,11 @@ class DrasticSumTCoNorm(TCoNorm):
             Combined membership function.
             """
 
-            def __call__(self, x1: np.ndarray, x2: np.ndarray) -> np.ndarray:
+            def __call__(self, x: np.ndarray) -> np.ndarray:
                 """
                 Evaluates the membership function.
                 """
 
-                # If x1 and x2 are 1D, turn them into a meshgrid
-                if len(x1.shape) == 1 and len(x2.shape) == 1:
-                    X1, X2 = np.meshgrid(x1, x2, indexing="ij")
-                else:
-                    X1, X2 = x1, x2
-
-                # Evaluate the membership functions
-                z1 = mf1(X1)
-                z2 = mf2(X2)
-
-                # Return the combined membership function
-                return np.where(z1 == 0, z2, np.where(z2 == 0, z1, 1)).reshape(X1.shape)
+                return np.where(mf1(x) == 0, mf2(x), np.where(mf2(x) == 0, mf1(x), 1))
 
         return CombinedMF()

@@ -1,6 +1,9 @@
 # standard libraries
 from typing import Union
 
+# third party libraries
+import numpy as np
+
 # fuzzy logic libraries
 from fuzzylogic.mf.base import MembershipFunction
 from fuzzylogic.tconorms.base import TCoNorm
@@ -20,21 +23,26 @@ class Composition:
             operator (TNorm): t-norm or t-conorm operator
         """
 
-        if not isinstance(operator, TNorm) and not isinstance(operator, TCoNorm):
+        if not isinstance(operator, TNorm) or not isinstance(operator, TCoNorm):
             raise ValueError(f"Provided operator is not an instance of TNorm or TCoNorm. Received {type(operator)}")
 
         self.operator = operator
 
-    def compose(self, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def compose(self, mf1: MembershipFunction, x1: np.ndarray, mf2: MembershipFunction, x2: np.ndarray) -> np.ndarray:
         """
         Evaluates the composition of two membership functions.
 
         Args:
             mf1 (MembershipFunction): Membership function 1.
+            x1 (np.ndarray): Universe of discourse for membership function 1.
             mf2 (MembershipFunction): Membership function 2.
+            x2 (np.ndarray): Universe of discourse for membership function 2.
 
         Returns:
-            MembershipFunction: Combined membership function.
+            np.ndarray: Relationship between membership function 1 and membership function 2.
         """
 
-        return self.operator.combine(mf1, mf2)
+        X1, X2 = np.meshgrid(x1, x2, indexing="ij")  # Create a 2D grid of x1 and x2 values
+        combined_values = self.operator.combine(mf1, mf2)(np.vstack([X1.ravel(), X2.ravel()])).reshape(X1.shape)
+
+        return combined_values

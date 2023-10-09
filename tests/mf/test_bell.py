@@ -28,7 +28,7 @@ def test_slope_variation():
 
 
 def test_error_handling():
-    with pytest.raises(ValueError, match="width must be non-zero"):
+    with pytest.raises(ValueError, match="std must be non-zero"):
         bell_fn = Bell(center=0, width=0, intensity=2)
         _ = bell_fn(np.array([1]))
 
