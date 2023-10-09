@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 from fuzzylogic.tconorms.base import TCoNorm
 
 
@@ -12,12 +12,12 @@ class MaximumTCoNorm(TCoNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function.
             """
@@ -38,12 +38,12 @@ class AlgebraicSumTCoNorm(TCoNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function.
             """
@@ -64,12 +64,12 @@ class BoundedSumTCoNorm(TCoNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function.
             """
@@ -90,12 +90,12 @@ class DrasticSumTCoNorm(TCoNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function.
             """

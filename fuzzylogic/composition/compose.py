@@ -5,7 +5,7 @@ from typing import Union
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 from fuzzylogic.tconorms.base import TCoNorm
 from fuzzylogic.tnorms.base import TNorm
 
@@ -28,7 +28,9 @@ class Composition:
 
         self.operator = operator
 
-    def compose(self, mf1: MembershipFunction, x1: np.ndarray, mf2: MembershipFunction, x2: np.ndarray) -> np.ndarray:
+    def compose(
+        self, mf1: MembershipFunction1D, x1: np.ndarray, mf2: MembershipFunction1D, x2: np.ndarray
+    ) -> np.ndarray:
         """
         Evaluates the composition of two membership functions.
 

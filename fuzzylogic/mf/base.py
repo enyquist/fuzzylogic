@@ -7,7 +7,7 @@ import numpy as np
 
 
 @dataclass
-class MembershipFunction(ABC):
+class MembershipFunction1D(ABC):
     """
     Abstract class for membership functions.
     """
@@ -16,5 +16,19 @@ class MembershipFunction(ABC):
     def __call__(self, x: np.ndarray) -> np.ndarray:
         """
         Evaluates the membership function at x.
+        """
+        pass
+
+
+@dataclass
+class MembershipFunction2D(ABC):
+    """
+    Abstract class for membership functions.
+    """
+
+    @abstractmethod
+    def __call__(self, x: np.ndarray, y: np.ndarray) -> np.ndarray:
+        """
+        Evaluates the membership function at x and y.
         """
         pass

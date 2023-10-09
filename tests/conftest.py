@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 @pytest.fixture(scope="session")
@@ -12,7 +12,7 @@ def dummy_mf_1():
     Dummy membership function for testing connectives.
     """
 
-    class DummyMembershipFunction1(MembershipFunction):
+    class DummyMembershipFunction1(MembershipFunction1D):
         """
         Sin function scaled to be between 0 and 1.
         """
@@ -29,7 +29,7 @@ def dummy_mf_2():
     Dummy membership function for testing connectives.
     """
 
-    class DummyMembershipFunction2(MembershipFunction):
+    class DummyMembershipFunction2(MembershipFunction1D):
         """
         Cos function scaled to be between 0 and 1.
         """

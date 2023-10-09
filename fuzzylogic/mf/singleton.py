@@ -5,11 +5,11 @@ from dataclasses import dataclass
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 @dataclass
-class FuzzySingleton(MembershipFunction):
+class FuzzySingleton(MembershipFunction1D):
     """
     Fuzzy singleton membership function.
     """

@@ -3,7 +3,7 @@ import numpy as np
 
 # fuzzy logic libraries
 from fuzzylogic.hedges.base import Hedge
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 class Not(Hedge):
@@ -12,12 +12,12 @@ class Not(Hedge):
     """
 
     @classmethod
-    def transform(cls, mf: MembershipFunction) -> MembershipFunction:
+    def transform(cls, mf: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class ComplimentedMF(MembershipFunction):
+        class ComplimentedMF(MembershipFunction1D):
             """
             Complimented membership function.
             """
@@ -37,12 +37,12 @@ class Con(Hedge):
     """
 
     @classmethod
-    def transform(cls, mf: MembershipFunction) -> MembershipFunction:
+    def transform(cls, mf: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class ConcentratedMF(MembershipFunction):
+        class ConcentratedMF(MembershipFunction1D):
             """
             Concentrated membership function.
             """
@@ -62,12 +62,12 @@ class Dil(Hedge):
     """
 
     @classmethod
-    def transform(cls, mf: MembershipFunction) -> MembershipFunction:
+    def transform(cls, mf: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class DilatedMF(MembershipFunction):
+        class DilatedMF(MembershipFunction1D):
             """
             Dilated membership function.
             """
@@ -87,12 +87,12 @@ class Int(Hedge):
     """
 
     @classmethod
-    def transform(cls, mf: MembershipFunction) -> MembershipFunction:
+    def transform(cls, mf: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class IntensifiedMF(MembershipFunction):
+        class IntensifiedMF(MembershipFunction1D):
             """
             Intensified membership function.
             """

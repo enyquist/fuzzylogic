@@ -3,7 +3,7 @@ import numpy as np
 
 # fuzzy logic libraries
 from fuzzylogic.connectives.base import Connective
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 class And(Connective):
@@ -12,12 +12,12 @@ class And(Connective):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class IntersectedMF(MembershipFunction):
+        class IntersectedMF(MembershipFunction1D):
             """
             Intersected membership function.
             """
@@ -37,12 +37,12 @@ class Or(Connective):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """
 
-        class UnionedMF(MembershipFunction):
+        class UnionedMF(MembershipFunction1D):
             """
             Unioned membership function.
             """

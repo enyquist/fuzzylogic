@@ -5,7 +5,7 @@ from abc import ABC, abstractclassmethod
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 class FuzzyEngine(ABC):
@@ -14,7 +14,7 @@ class FuzzyEngine(ABC):
     """
 
     @abstractclassmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """

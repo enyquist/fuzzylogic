@@ -3,7 +3,7 @@ import numpy as np
 
 # fuzzy logic libraries
 from fuzzylogic.engines.base import FuzzyEngine
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 class Centroid(FuzzyEngine):
@@ -12,7 +12,7 @@ class Centroid(FuzzyEngine):
     """
 
     @classmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """
@@ -35,7 +35,7 @@ class Bisector(FuzzyEngine):
     """
 
     @classmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """
@@ -62,7 +62,7 @@ class MeanOfMaximum(FuzzyEngine):
     """
 
     @classmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """
@@ -83,7 +83,7 @@ class LargestOfMaximum(FuzzyEngine):
     """
 
     @classmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """
@@ -104,7 +104,7 @@ class SmallestOfMaximum(FuzzyEngine):
     """
 
     @classmethod
-    def defuzz(cls, x: np.ndarray, mf: MembershipFunction) -> float:
+    def defuzz(cls, x: np.ndarray, mf: MembershipFunction1D) -> float:
         """
         Defuzzifies the membership function.
         """

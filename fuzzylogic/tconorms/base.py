@@ -2,7 +2,7 @@
 from abc import ABC, abstractclassmethod
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 
 
 class TCoNorm(ABC):
@@ -11,7 +11,7 @@ class TCoNorm(ABC):
     """
 
     @abstractclassmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Transforms the membership function.
         """

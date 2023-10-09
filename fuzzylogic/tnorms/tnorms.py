@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction
+from fuzzylogic.mf.base import MembershipFunction1D
 from fuzzylogic.tnorms.base import TNorm
 
 
@@ -12,12 +12,12 @@ class MinimumTNorm(TNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Combines two membership functions using the minimum operator.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function using the minimum operator.
             """
@@ -38,12 +38,12 @@ class AlgebraicProductTNorm(TNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Combines two membership functions using the algebraic product operator.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function using the algebraic product operator.
             """
@@ -64,12 +64,12 @@ class BoundedProductTNorm(TNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Combines two membership functions using the bounded product operator.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function using the bounded product operator.
             """
@@ -90,12 +90,12 @@ class DrasticProductTNorm(TNorm):
     """
 
     @classmethod
-    def combine(cls, mf1: MembershipFunction, mf2: MembershipFunction) -> MembershipFunction:
+    def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
         Combines two membership functions using the drastic product operator.
         """
 
-        class CombinedMF(MembershipFunction):
+        class CombinedMF(MembershipFunction1D):
             """
             Combined membership function using the drastic product operator.
             """
