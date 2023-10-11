@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.hedges.hedges import Con, Dil, Int, Not
+from fuzzylogic.hedges.hedges import Con, Dil, Dim, Int, Not
 
 
 class TestNotHedge:
@@ -170,3 +170,50 @@ class TestIntHedge:
         # For original values above 0.5, intensified values should be more than original.
         assert np.all(intensified_y_vals[original_y_vals < 0.5] <= original_y_vals[original_y_vals < 0.5])
         assert np.all(intensified_y_vals[original_y_vals > 0.5] >= original_y_vals[original_y_vals > 0.5])
+
+
+class TestDimHedge:
+    def test_dim_transformation(self, dummy_mf_1):
+        """
+        Test the Dim hedge transformation.
+        """
+
+        # Apply Dim hedge
+        diminished_mf = Dim.transform(dummy_mf_1)
+
+        # Define test data
+        x_vals = np.array([0, 1, 2])
+        u_values = (np.sin(x_vals) + 1) / 2
+        expected_values = np.where(u_values < 0.5, 0.5 * np.sqrt(u_values), 1 - 0.5 * np.sqrt((1 - u_values)))
+
+        # Check transformation
+        assert np.array_equal(diminished_mf(x_vals), expected_values)
+
+    def test_output_range(self, dummy_mf_1):
+        """
+        Test the output range of the Dim hedge.
+        """
+
+        diminished_mf = Dim.transform(dummy_mf_1)
+
+        x_vals = np.linspace(-100, 100, 500)
+        y_vals = diminished_mf(x_vals)
+
+        assert np.all(y_vals >= 0)
+        assert np.all(y_vals <= 1)
+
+    # def test_diminishment_effect(self, dummy_mf_1):
+    #     """
+    #     Test the diminishment effect of the Dim hedge.
+    #     """
+
+    #     diminished_mf = Dim.transform(dummy_mf_1)
+
+    #     x_vals = np.linspace(-2 * np.pi, 2 * np.pi, 500)
+    #     original_y_vals = dummy_mf_1(x_vals)
+    #     diminished_y_vals = diminished_mf(x_vals)
+
+    #     # For original values below 0.5, diminished values should be more than original.
+    #     # For original values above 0.5, diminished values should be less than original.
+    #     assert np.all(diminished_y_vals[original_y_vals <= 0.5] >= original_y_vals[original_y_vals <= 0.5])
+    #     assert np.all(diminished_y_vals[original_y_vals > 0.5] <= original_y_vals[original_y_vals > 0.5])
