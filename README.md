@@ -1,11 +1,16 @@
 Fuzzy Logic Overview
 ==============================
-OVERVIEW
-
+Implementation of fuzzy logic in the context of artificial life. It delves into various aspects of fuzzy sets, operations on them, and reasoning using them. Here's a summarized breakdown of the provided content:
 
 ## Features
 
-* TODO
+* Membership Functions: `fuzzylogic/mf/`
+* Connectives: `fuzzylogic/connectives/`
+* Defuzzification: `fuzzylogic/defuzz/`
+* Linguistic Hedges:
+`fuzzylogic/hedges/`
+* T-CoNorms: `fuzzylogic/tconorms/`
+* T-Norms: `fuzzylogic/tnorms/`
 
 ## Installation and Setup
 
@@ -30,11 +35,28 @@ make init
 
 ## Explore Data
 
-TODO
+See what the `fuzzylogic` module has to offer in `notebooks/demo.ipynb`. More to come!
 
 ## TODO
 
-* TODO
+* Abstract Fuzzy Rules and their evaluation
+* Abstract Composition (Max-Min, Max-Product, T-Conorm-T-Norm)
+* Visualizing Fuzzy Surfaces
+* Abstract Fuzzy Inference Systems
+* Tests for Fuzzy Rules
+* Tests for Composition
+* ~~Abstract Connectives~~
+* ~~Abstract Defuzzification~~
+* ~~Abstract Hedges~~
+* ~~Abstract Membership Functions~~
+* ~~Abstract T-CoNorms~~
+* ~~Abstract T-CoNorms~~
+* ~~Tests for Connectives~~
+* ~~Tests for defuzzification~~
+* ~~Tests for Hedges~~
+* ~~Tests for Membership Functions~~
+* ~~Tests for T-CoNorms~~
+* ~~Tests for T-Norms~~
 
 ## Contributing
 
