@@ -16,3 +16,9 @@ class TCoNorm(ABC):
         Transforms the membership function.
         """
         pass
+
+    def __repr__(self) -> str:
+        """
+        Returns a string representation of the T-CoNorm.
+        """
+        return f"{self.__class__.__name__}"

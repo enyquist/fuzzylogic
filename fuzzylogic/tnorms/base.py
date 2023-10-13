@@ -16,3 +16,9 @@ class TNorm(ABC):
         Transforms the membership function.
         """
         pass
+
+    def __repr__(self) -> str:
+        """
+        Returns a string representation of the T-Norm.
+        """
+        return f"{self.__class__.__name__}"
