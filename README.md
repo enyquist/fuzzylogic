@@ -1,5 +1,6 @@
 Fuzzy Logic Overview
-==============================
+====================
+
 Implementation of fuzzy logic in the context of artificial life. It delves into various aspects of fuzzy sets, operations on them, and reasoning using them. Here's a summarized breakdown of the provided content:
 
 ## Features
@@ -8,7 +9,7 @@ Implementation of fuzzy logic in the context of artificial life. It delves into 
 * Connectives: `fuzzylogic/connectives/`
 * Defuzzification: `fuzzylogic/defuzz/`
 * Linguistic Hedges:
-`fuzzylogic/hedges/`
+  `fuzzylogic/hedges/`
 * T-CoNorms: `fuzzylogic/tconorms/`
 * T-Norms: `fuzzylogic/tnorms/`
 
@@ -21,6 +22,7 @@ Clone the repository:
 ```sh
 git clone https://github.com/enyquist/fuzzylogic.git
 ```
+
 Navigate to the directory:
 
 ```sh
@@ -39,8 +41,8 @@ See what the `fuzzylogic` module has to offer in `notebooks/demo.ipynb`. More to
 
 ## TODO
 
-* TSK Fuzzy Inference
-* LSE Optimization
+* Sugeno Fuzzy Inference
+* Tsukamatoto Fuzzy Inference
 * ~~Abstract Fuzzy Rules and their evaluation~~
 * ~~Abstract Composition (Max-Min, Max-Product, T-Conorm-T-Norm)~~
 * ~~Visualizing Fuzzy Surfaces~~
@@ -69,4 +71,3 @@ This project is licensed under the MIT License. See `LICENSE` for details.
 ## Contact
 
 For any questions or feedback, please reach out to enyquis1@jh.edu.
-
