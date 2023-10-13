@@ -31,9 +31,8 @@ class MamdaniFuzzyEngine(FuzzyEngine):
             aggregate_operator (TCoNorm): Operator to aggregate fuzzy rules
             defuzz (Defuzzification): Defuzzification method
         """
-        # Check if the rules are valid
-        if not rules:
-            raise ValueError("The rules list cannot be empty.")
+        # Initialize the base class
+        super().__init__(rules=rules)
 
         # Check if the aggregate operator is valid
         if not isinstance(aggregate_operator, TCoNorm):
@@ -43,7 +42,6 @@ class MamdaniFuzzyEngine(FuzzyEngine):
         if defuzz not in DEFUZZ:
             raise ValueError(f"The defuzzification method is not valid. Got {defuzz}.")
 
-        self.rules = rules
         self.aggregate_operator = aggregate_operator
         self.defuzz = DEFUZZ[defuzz]
 
