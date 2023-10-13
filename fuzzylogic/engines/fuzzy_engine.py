@@ -6,21 +6,13 @@ from typing import List, Union
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.defuzz.defuzz import Bisector, Centroid, LargestOfMaximum, MeanOfMaximum, SmallestOfMaximum
+from fuzzylogic.engines.base import DEFUZZ, FuzzyEngine
 from fuzzylogic.mf.base import MembershipFunction1D
 from fuzzylogic.rules.fuzzy_rule import FuzzyRule
 from fuzzylogic.tconorms.tconorms import TCoNorm
 
-DEFUZZ = {
-    "centroid": Centroid,
-    "bisector": Bisector,
-    "mom": MeanOfMaximum,
-    "lom": LargestOfMaximum,
-    "som": SmallestOfMaximum,
-}
 
-
-class FuzzyEngine:
+class MamdaniFuzzyEngine(FuzzyEngine):
     """
     Base class for fuzzy inference engines.
     """
