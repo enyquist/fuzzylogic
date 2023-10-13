@@ -39,12 +39,10 @@ See what the `fuzzylogic` module has to offer in `notebooks/demo.ipynb`. More to
 
 ## TODO
 
-* Abstract Fuzzy Rules and their evaluation
-* Abstract Composition (Max-Min, Max-Product, T-Conorm-T-Norm)
-* Visualizing Fuzzy Surfaces
-* Abstract Fuzzy Inference Systems
-* Tests for Fuzzy Rules
-* Tests for Composition
+* ~~Abstract Fuzzy Rules and their evaluation~~
+* ~~Abstract Composition (Max-Min, Max-Product, T-Conorm-T-Norm)~~
+* ~~Visualizing Fuzzy Surfaces~~
+* ~~Abstract Fuzzy Inference Systems~~
 * ~~Abstract Connectives~~
 * ~~Abstract Defuzzification~~
 * ~~Abstract Hedges~~
