@@ -39,6 +39,8 @@ See what the `fuzzylogic` module has to offer in `notebooks/demo.ipynb`. More to
 
 ## TODO
 
+* TSK Fuzzy Inference
+* LSE Optimization
 * ~~Abstract Fuzzy Rules and their evaluation~~
 * ~~Abstract Composition (Max-Min, Max-Product, T-Conorm-T-Norm)~~
 * ~~Visualizing Fuzzy Surfaces~~
