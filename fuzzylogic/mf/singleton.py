@@ -1,5 +1,6 @@
 # standard libraries
 from dataclasses import dataclass
+from typing import Union
 
 # third party libraries
 import numpy as np
@@ -14,14 +15,14 @@ class FuzzySingleton(MembershipFunction1D):
     Fuzzy singleton membership function.
     """
 
-    value: float  # the crisp value of the fuzzy singleton
+    value: Union[np.int_, np.float_]  # the crisp value of the fuzzy singleton
 
     def __post_init__(self):
         """
         Validates the value of the fuzzy singleton.
         """
 
-        if not isinstance(self.value, (int, float)):
+        if not isinstance(self.value, (int, float, np.int_, np.float_)):
             raise ValueError(f"Invalid value type. Received {type(self.value)}")
 
     def __call__(self, x: np.ndarray) -> np.ndarray:
