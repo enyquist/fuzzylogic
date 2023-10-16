@@ -8,13 +8,14 @@ init: ## Initialize Project
 	@./venv/bin/python3 -m pre_commit install --install-hooks --overwrite
 
 clean:  ## remove build artifacts
-	rm -rf build dist venv pip-wheel-metadata htmlcov
-	find . -name .tox | xargs rm -rf
-	find . -name __pycache__ | xargs rm -rf
-	find . -name .pytest_cache | xargs rm -rf
-	find . -name *.egg-info | xargs rm -rf
-	find . -name setup-py-dev-links | xargs rm -rf
-	find docs -name generated | xargs rm -rf
+	rm -rf build dist venv pip-wheel-metadata htmlcov docs/_build
+	find . -name .tox -exec rm -rf {} +
+	find . -name __pycache__ -exec rm -rf {} +
+	find . -name .pytest_cache -exec rm -rf {} +
+	find . -name *.egg-info -exec rm -rf {} +
+	find . -name setup-py-dev-links -exec rm -rf {} +
+	find docs -name generated -exec rm -rf {} +
+	find docs -type f ! -name 'conf.py' ! -name 'index.rst' ! -name 'Makefile' -exec rm -rf {} +
 
 update: clean init
 
