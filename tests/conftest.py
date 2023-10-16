@@ -38,3 +38,20 @@ def dummy_mf_2():
             return (np.cos(x) + 1) / 2
 
     return DummyMembershipFunction2()
+
+
+@pytest.fixture(scope="session")
+def simple_mf():
+    """
+    Simple membership function for testing.
+    """
+
+    class SimpleMF(MembershipFunction1D):
+        """
+        Simple membership function.
+        """
+
+        def __call__(self, x: np.ndarray, y: np.ndarray) -> np.ndarray:
+            return x + y
+
+    return SimpleMF()
