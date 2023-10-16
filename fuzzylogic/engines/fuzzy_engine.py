@@ -14,7 +14,7 @@ from fuzzylogic.tconorms.tconorms import TCoNorm
 
 class MamdaniFuzzyEngine(FuzzyEngine):
     """
-    Base class for fuzzy inference engines.
+    Mamdani fuzzy inference engine.
     """
 
     def __init__(
