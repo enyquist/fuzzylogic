@@ -2,12 +2,12 @@
 from abc import ABC, abstractclassmethod
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
-class TCoNorm(ABC):
+class TNorm(ABC):
     """
-    Base class for T-CoNorms a.k.a. S-Norms.
+    Base class for T-Norms.
     """
 
     @abstractclassmethod
@@ -19,6 +19,6 @@ class TCoNorm(ABC):
 
     def __repr__(self) -> str:
         """
-        Returns a string representation of the T-CoNorm.
+        Returns a string representation of the T-Norm.
         """
         return f"{self.__class__.__name__}"

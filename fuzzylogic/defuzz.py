@@ -2,8 +2,8 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.defuzz.base import Defuzzification
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.defuzz import Defuzzification
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
 class Centroid(Defuzzification):
@@ -117,3 +117,12 @@ class SmallestOfMaximum(Defuzzification):
 
         # Return the smallest of the indices
         return np.min(x[maximum_indices])
+
+
+DEFUZZ = {
+    "centroid": Centroid,
+    "bisector": Bisector,
+    "mom": MeanOfMaximum,
+    "lom": LargestOfMaximum,
+    "som": SmallestOfMaximum,
+}

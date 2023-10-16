@@ -2,12 +2,12 @@
 from abc import ABC, abstractclassmethod
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
-class Connective(ABC):
+class TCoNorm(ABC):
     """
-    Linguistic Connective base class i.e. AND, OR, etc.
+    Base class for T-CoNorms a.k.a. S-Norms.
     """
 
     @abstractclassmethod
@@ -16,3 +16,9 @@ class Connective(ABC):
         Transforms the membership function.
         """
         pass
+
+    def __repr__(self) -> str:
+        """
+        Returns a string representation of the T-CoNorm.
+        """
+        return f"{self.__class__.__name__}"

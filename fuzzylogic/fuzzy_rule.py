@@ -2,11 +2,10 @@
 from typing import List, Optional, Union
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
-from fuzzylogic.mf.constant import ConstantMF
-from fuzzylogic.mf.singleton import FuzzySingleton
-from fuzzylogic.tconorms.base import TCoNorm
-from fuzzylogic.tnorms.base import TNorm
+from fuzzylogic.core.mf import MembershipFunction1D
+from fuzzylogic.core.tconorm import TCoNorm
+from fuzzylogic.core.tnorm import TNorm
+from fuzzylogic.mf import ConstantMF, FuzzySingleton
 
 
 class FuzzyRule:

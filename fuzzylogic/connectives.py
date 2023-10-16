@@ -2,8 +2,8 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.connectives.base import Connective
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.connective import Connective
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
 class And(Connective):

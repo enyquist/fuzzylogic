@@ -2,8 +2,8 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.hedges.base import Hedge
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.hedge import Hedge
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
 class Not(Hedge):

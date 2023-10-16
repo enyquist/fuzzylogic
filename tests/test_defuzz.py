@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 # fuzzy logic libraries
-from fuzzylogic.defuzz.defuzz import Bisector, Centroid, LargestOfMaximum, MeanOfMaximum, SmallestOfMaximum
+from fuzzylogic.defuzz import Bisector, Centroid, LargestOfMaximum, MeanOfMaximum, SmallestOfMaximum
 
 
 def test_centroid_defuzz(dummy_mf_1):

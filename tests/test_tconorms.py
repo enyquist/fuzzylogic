@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.tconorms.tconorms import AlgebraicSumTCoNorm, BoundedSumTCoNorm, DrasticSumTCoNorm, MaximumTCoNorm
+from fuzzylogic.tconorms import AlgebraicSumTCoNorm, BoundedSumTCoNorm, DrasticSumTCoNorm, MaximumTCoNorm
 
 
 def test_maximum_tconorm(dummy_mf_1, dummy_mf_2):

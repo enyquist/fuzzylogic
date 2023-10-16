@@ -6,7 +6,7 @@ from typing import Union
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
 @dataclass

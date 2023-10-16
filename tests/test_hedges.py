@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.hedges.hedges import Con, Dil, Dim, Int, Not
+from fuzzylogic.hedges import Con, Dil, Dim, Int, Not
 
 
 class TestNotHedge:

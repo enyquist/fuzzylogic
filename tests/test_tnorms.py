@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.tnorms.tnorms import AlgebraicProductTNorm, BoundedProductTNorm, DrasticProductTNorm, MinimumTNorm
+from fuzzylogic.tnorms import AlgebraicProductTNorm, BoundedProductTNorm, DrasticProductTNorm, MinimumTNorm
 
 
 def test_minimum_tnorm(dummy_mf_1, dummy_mf_2):

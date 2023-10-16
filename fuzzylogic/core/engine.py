@@ -6,17 +6,8 @@ from typing import List
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.defuzz.defuzz import Bisector, Centroid, LargestOfMaximum, MeanOfMaximum, SmallestOfMaximum
-from fuzzylogic.mf.base import MembershipFunction1D, MembershipFunction2D
-from fuzzylogic.rules.fuzzy_rule import FuzzyRule
-
-DEFUZZ = {
-    "centroid": Centroid,
-    "bisector": Bisector,
-    "mom": MeanOfMaximum,
-    "lom": LargestOfMaximum,
-    "som": SmallestOfMaximum,
-}
+from fuzzylogic.core.mf import MembershipFunction1D, MembershipFunction2D
+from fuzzylogic.fuzzy_rule import FuzzyRule
 
 
 class FuzzyEngine(ABC):

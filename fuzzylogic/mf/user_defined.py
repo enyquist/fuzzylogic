@@ -6,7 +6,7 @@ from typing import Callable
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction2D
+from fuzzylogic.core.mf import MembershipFunction2D
 
 
 @dataclass

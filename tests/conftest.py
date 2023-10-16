@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
+from fuzzylogic.core.mf import MembershipFunction1D
 
 
 @pytest.fixture(scope="session")

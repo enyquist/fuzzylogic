@@ -2,7 +2,7 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.connectives.connectives import And, Or
+from fuzzylogic.connectives import And, Or
 
 
 class TestAndConnective:

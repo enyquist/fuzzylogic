@@ -6,10 +6,11 @@ from typing import List, Union
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.engines.base import DEFUZZ, FuzzyEngine
-from fuzzylogic.mf.base import MembershipFunction1D
-from fuzzylogic.rules.fuzzy_rule import FuzzyRule
-from fuzzylogic.tconorms.tconorms import TCoNorm
+from fuzzylogic.core.engine import FuzzyEngine
+from fuzzylogic.core.mf import MembershipFunction1D
+from fuzzylogic.core.tconorm import TCoNorm
+from fuzzylogic.defuzz import DEFUZZ
+from fuzzylogic.fuzzy_rule import FuzzyRule
 
 
 class MamdaniFuzzyEngine(FuzzyEngine):

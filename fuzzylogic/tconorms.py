@@ -2,24 +2,24 @@
 import numpy as np
 
 # fuzzy logic libraries
-from fuzzylogic.mf.base import MembershipFunction1D
-from fuzzylogic.tnorms.base import TNorm
+from fuzzylogic.core.mf import MembershipFunction1D
+from fuzzylogic.core.tconorm import TCoNorm
 
 
-class MinimumTNorm(TNorm):
+class MaximumTCoNorm(TCoNorm):
     """
-    Minimum T-Norm.
+    Maximum T-CoNorm a.k.a. OR operator.
     """
 
     @classmethod
     def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
-        Combines two membership functions using the minimum operator.
+        Transforms the membership function.
         """
 
         class CombinedMF(MembershipFunction1D):
             """
-            Combined membership function using the minimum operator.
+            Combined membership function.
             """
 
             def __call__(self, x: np.ndarray) -> np.ndarray:
@@ -27,25 +27,25 @@ class MinimumTNorm(TNorm):
                 Evaluates the membership function.
                 """
 
-                return np.minimum(mf1(x), mf2(x))
+                return np.maximum(mf1(x), mf2(x))
 
         return CombinedMF()
 
 
-class AlgebraicProductTNorm(TNorm):
+class AlgebraicSumTCoNorm(TCoNorm):
     """
-    Algebraic Product T-Norm.
+    Algebraic sum T-CoNorm.
     """
 
     @classmethod
     def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
-        Combines two membership functions using the algebraic product operator.
+        Transforms the membership function.
         """
 
         class CombinedMF(MembershipFunction1D):
             """
-            Combined membership function using the algebraic product operator.
+            Combined membership function.
             """
 
             def __call__(self, x: np.ndarray) -> np.ndarray:
@@ -53,25 +53,25 @@ class AlgebraicProductTNorm(TNorm):
                 Evaluates the membership function.
                 """
 
-                return mf1(x) * mf2(x)
+                return mf1(x) + mf2(x) - mf1(x) * mf2(x)
 
         return CombinedMF()
 
 
-class BoundedProductTNorm(TNorm):
+class BoundedSumTCoNorm(TCoNorm):
     """
-    Bounded Product T-Norm.
+    Bounded sum T-CoNorm.
     """
 
     @classmethod
     def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
-        Combines two membership functions using the bounded product operator.
+        Transforms the membership function.
         """
 
         class CombinedMF(MembershipFunction1D):
             """
-            Combined membership function using the bounded product operator.
+            Combined membership function.
             """
 
             def __call__(self, x: np.ndarray) -> np.ndarray:
@@ -79,25 +79,25 @@ class BoundedProductTNorm(TNorm):
                 Evaluates the membership function.
                 """
 
-                return np.maximum(0, mf1(x) + mf2(x) - 1)
+                return np.minimum(1, mf1(x) + mf2(x))
 
         return CombinedMF()
 
 
-class DrasticProductTNorm(TNorm):
+class DrasticSumTCoNorm(TCoNorm):
     """
-    Drastic Product T-Norm.
+    Drastic Sum T-CoNorm.
     """
 
     @classmethod
     def combine(cls, mf1: MembershipFunction1D, mf2: MembershipFunction1D) -> MembershipFunction1D:
         """
-        Combines two membership functions using the drastic product operator.
+        Transforms the membership function.
         """
 
         class CombinedMF(MembershipFunction1D):
             """
-            Combined membership function using the drastic product operator.
+            Combined membership function.
             """
 
             def __call__(self, x: np.ndarray) -> np.ndarray:
@@ -105,6 +105,6 @@ class DrasticProductTNorm(TNorm):
                 Evaluates the membership function.
                 """
 
-                return np.where(mf1(x) == 1, mf2(x), np.where(mf2(x) == 1, mf1(x), 0))
+                return np.where(mf1(x) == 0, mf2(x), np.where(mf2(x) == 0, mf1(x), 1))
 
         return CombinedMF()
