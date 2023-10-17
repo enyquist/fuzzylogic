@@ -8,6 +8,8 @@ Implementation of fuzzy logic in the context of artificial life. It delves into 
 * Membership Functions: `fuzzylogic/mf/`
 * Connectives: `fuzzylogic/connectives.py`
 * Defuzzification: `fuzzylogic/defuzz.py`
+* Fuzzy Engines: `fuzzylogic/fuzzy_engine.py`
+* Fuzzy Rules: `fuzzylogic/fuzzy_rule.py`
 * Linguistic Hedges: `fuzzylogic/hedges.py`
 * T-CoNorms: `fuzzylogic/tconorms.py`
 * T-Norms: `fuzzylogic/tnorms.py`
