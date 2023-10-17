@@ -6,12 +6,11 @@ Implementation of fuzzy logic in the context of artificial life. It delves into 
 ## Features
 
 * Membership Functions: `fuzzylogic/mf/`
-* Connectives: `fuzzylogic/connectives/`
-* Defuzzification: `fuzzylogic/defuzz/`
-* Linguistic Hedges:
-  `fuzzylogic/hedges/`
-* T-CoNorms: `fuzzylogic/tconorms/`
-* T-Norms: `fuzzylogic/tnorms/`
+* Connectives: `fuzzylogic/connectives.py`
+* Defuzzification: `fuzzylogic/defuzz.py`
+* Linguistic Hedges: `fuzzylogic/hedges.py`
+* T-CoNorms: `fuzzylogic/tconorms.py`
+* T-Norms: `fuzzylogic/tnorms.py`
 
 ## Installation and Setup
 
@@ -33,6 +32,12 @@ Create venv:
 
 ```sh
 make init
+```
+
+Checkout the Docs:
+
+```sh
+make serve-docs
 ```
 
 ## Explore Data
